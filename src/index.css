@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-bgDark text-white font-sans antialiased;
+  }
+}
+
+@layer components {
+  .hexagon-image-container {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  
+  .shadow-neon {
+    box-shadow: 0 0 1rem #0ef;
+  }
+  
+  .text-shadow-neon {
+    text-shadow: 0 0 1rem #0ef;
+  }
+}
