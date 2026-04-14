@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Linkedin, Instagram, Facebook, Twitter, ExternalLink, 
-  Code, Brain, Globe, ChevronUp, Menu, X 
+  Code, Brain, Globe, ChevronUp, Menu, X, Mail, Phone, Github
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
 import Footer from './components/Footer';
