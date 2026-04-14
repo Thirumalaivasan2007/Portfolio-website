@@ -88,7 +88,7 @@ const App = () => {
   const projects = [
     {
       title: "Zylron AI Web",
-      tag: "Cloud Edition",
+      tag: "Full stack AI",
       description: "A high-performance AI assistant interface utilizing next-gen LLM APIs with real-time streaming and context preservation.",
       highlights: [
         "Real-time token streaming with Gemini Pro API",
