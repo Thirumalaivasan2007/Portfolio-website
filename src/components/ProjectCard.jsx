@@ -11,7 +11,7 @@ const ProjectCard = ({
   highlights, 
   liveLink, 
   githubLink, 
-  accentColor = '#0ef' 
+  accentColor = '#00eaee' 
 }) => {
   return (
     <Tilt
@@ -46,7 +46,7 @@ const ProjectCard = ({
           </span>
         </div>
 
-        <p className="text-gray-400 leading-relaxed mb-6 flex-grow">
+        <p className="text-[#a0a0b0] leading-relaxed mb-6 flex-grow">
           {description}
         </p>
 

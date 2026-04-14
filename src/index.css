@@ -15,78 +15,74 @@
 }
 
 @layer components {
-  .hexagon-image-container {
+  /* Hexagon Core Architecture */
+  .hexagon-shape {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
   
-  .shadow-neon {
-    box-shadow: 0 0 1rem #0ef;
-  }
-  
-  .text-shadow-neon {
-    text-shadow: 0 0 1rem #0ef;
+  .hexagon-wrapper {
+    @apply relative flex items-center justify-center transition-all duration-500;
   }
 
-  .glass-card {
-    background: rgba(15, 15, 15, 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+  /* 5px Border Logic */
+  .hexagon-border {
+    @apply absolute inset-0 bg-neonCyan hexagon-shape;
+    z-index: 1;
   }
 
-  @keyframes pulse-cyan {
-    0% { box-shadow: 0 0 0 0 rgba(0, 238, 255, 0.4); }
-    70% { box-shadow: 0 0 0 20px rgba(0, 238, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 238, 255, 0); }
+  .hexagon-inner {
+    @apply absolute hexagon-shape bg-bgDark overflow-hidden;
+    inset: 5px; /* Creates the 5px border look */
+    z-index: 2;
   }
 
-  .animate-pulse-cyan {
-    animation: pulse-cyan 2s infinite;
+  .hexagon-image {
+    @apply w-full h-full object-cover transition-all duration-700 ease-in-out;
   }
 
-  .text-glow-cyan {
-    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5), 0 0 20px rgba(0, 238, 255, 0.3);
+  /* Hover Logic: Zoom + Grayscale + Glow */
+  .hexagon-wrapper:hover .hexagon-image {
+    @apply scale-110 grayscale;
   }
 
-  @keyframes glitch-rgb {
-    0% { transform: translate(0); }
-    20% { transform: translate(-3px, 3px); }
-    40% { transform: translate(-3px, -3px); }
-    60% { transform: translate(3px, 3px); }
-    80% { transform: translate(3px, -3px); }
-    100% { transform: translate(0); }
+  .hexagon-wrapper:hover {
+    filter: drop-shadow(0 0 25px rgba(0, 234, 238, 0.6));
   }
 
-  .glitch-layer {
-    mix-blend-mode: lighten;
-  }
-
-  .glitch-red { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 red); }
-  .glitch-blue { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 blue); }
-  .glitch-green { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 green); }
-
-  /* New Refined Hero Styles */
+  /* Typography Branding */
   .clean-greeting {
       font-size: 1.3rem;
-      font-weight: 600;
-      color: #e0e0e0;
+      font-weight: 500;
+      color: #a0a0b0; /* Light grey instead of aggressive cyan */
       font-style: normal !important;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       margin-bottom: 8px;
   }
 
   .single-line-name {
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      font-weight: 800;
-      color: #ffffff;
-      margin: 0;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      gap: 0px;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 900;
       white-space: nowrap;
+      line-height: 1.1;
+      @apply flex items-center justify-center lg:justify-start;
   }
 
-  .cyan-text {
-      color: #0ef; /* Keeping the consistent neon cyan */
+  .cyan-accent {
+      color: #00eaee;
+  }
+
+  /* Glassmorphism Global Styles */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .shadow-neon {
+    box-shadow: 0 0 1rem #00eaee;
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 234, 238, 0.5);
   }
 }
