@@ -3,12 +3,12 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-import Loader from './components/Loader.jsx'
+import AdvancedLoader from './components/AdvancedLoader.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Loader>
+    <AdvancedLoader>
       <App />
-    </Loader>
+    </AdvancedLoader>
   </StrictMode>,
 )
