@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Github, Linkedin, Instagram, Facebook, Twitter, ExternalLink, 
-  Code, Brain, Globe, MessageSquare, ChevronUp, Mail, Phone 
+  Code, Brain, Globe, MessageSquare, ChevronUp, Mail, Phone,
+  Menu, X 
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
 
@@ -12,6 +13,7 @@ const App = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [result, setResult] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const phrases = ["Full-Stack Developer", "AI Engineer", "MERN Stack Specialist"];
   const typingSpeed = 100;
@@ -74,6 +76,14 @@ const App = () => {
     }
   };
 
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   const projects = [
     {
       title: "Zylron AI Web",
@@ -125,22 +135,55 @@ const App = () => {
   return (
     <div className="bg-bgDark min-h-screen text-white font-sans transition-colors duration-500 overflow-x-hiddenSelection:bg-neonCyan/30">
       {/* Header */}
-      <nav className={`fixed top-0 left-0 w-full px-[10%] py-4 flex justify-between items-center z-[100] transition-all duration-300 ${isScrolled ? 'bg-bgDark/80 backdrop-blur-xl py-3 border-b border-white/5 shadow-2xl' : 'bg-transparent'}`}>
-        <a href="#home" className="text-2xl md:text-3xl font-black tracking-tighter hover:scale-105 transition-transform text-neonCyan text-glow-cyan">
+      <nav className={`fixed top-0 left-0 w-full px-[5%] md:px-[10%] py-4 flex justify-between items-center z-[100] transition-all duration-300 ${isScrolled ? 'bg-bgDark/80 backdrop-blur-xl py-3 border-b border-white/5 shadow-2xl' : 'bg-transparent'}`}>
+        <a href="#home" className="text-xl md:text-3xl font-black tracking-tighter hover:scale-105 transition-transform text-neonCyan text-glow-cyan">
           THIRUMALAIVASAN
         </a>
-        <div className="space-x-8 hidden lg:flex">
-          {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold uppercase tracking-[0.2em] hover:text-neonCyan transition-all duration-300 relative group">
-              {item}
+
+        {/* Desktop Nav links */}
+        <div className="space-x-8 hidden md:flex">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} className="text-sm font-semibold uppercase tracking-[0.2em] hover:text-neonCyan transition-all duration-300 relative group">
+              {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neonCyan transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2 text-neonCyan hover:bg-white/5 rounded-lg transition-colors"
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Mobile Nav Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 w-full bg-bgDark border-b border-white/5 flex flex-col items-center py-8 space-y-6 md:hidden backdrop-blur-xl bg-bgDark/95"
+            >
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-lg font-bold uppercase tracking-widest hover:text-neonCyan transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center px-[10%] py-24 flex-col lg:flex-row gap-16 relative">
+      <section id="home" className="min-h-screen flex items-center px-[6%] md:px-[10%] py-24 flex-col xl:flex-row gap-12 md:gap-20 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-neonCyan/5 to-transparent pointer-events-none"></div>
         
         <motion.div 
@@ -207,10 +250,10 @@ const App = () => {
       </section>
 
       {/* About + Achievements Section */}
-      <section id="about" className="py-32 px-[10%] bg-[#0a0a0f] relative border-y border-white/5">
+      <section id="about" className="py-32 px-[6%] md:px-[10%] bg-[#0a0a0f] relative border-y border-white/5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-neonCyan/5 blur-[120px] rounded-full pointer-events-none"></div>
         
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-24 items-center">
           {/* Left Column: Refined Hexagon Image */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
