@@ -35,7 +35,7 @@ const ProjectCard = ({
             {title}
           </h3>
           <span 
-            className="px-3 py-1 rounded-full text-xs font-bold border"
+            className="px-3 py-1 rounded-full text-xs font-bold border whitespace-nowrap"
             style={{ 
               borderColor: `${accentColor}44`,
               color: accentColor,
