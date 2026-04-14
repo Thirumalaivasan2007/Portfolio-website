@@ -14,6 +14,7 @@ const App = () => {
   const [result, setResult] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showResumeAlert, setShowResumeAlert] = useState(false);
 
   const phrases = ["Full-Stack Developer", "AI Engineer", "MERN Stack Specialist"];
   const typingSpeed = 100;
@@ -236,15 +237,12 @@ const App = () => {
           className="flex-1 flex justify-center items-center z-10 order-2"
         >
           {/* Hexagon Portrait System */}
-          <div className="hexagon-wrapper w-72 h-80 md:w-[28rem] md:h-[32rem]">
-            <div className="hexagon-border"></div>
-            <div className="hexagon-inner">
-               <img 
-                 src="/image1.jpeg" 
-                 alt="Portrait" 
-                 className="hexagon-image"
-               />
-            </div>
+          <div className="hexagon-wrapper w-72 h-72 md:w-[350px] md:h-[350px]">
+             <img 
+               src="/image1.jpeg" 
+               alt="Portrait" 
+               className="profile-img"
+             />
           </div>
         </motion.div>
       </section>
@@ -262,18 +260,12 @@ const App = () => {
             viewport={{ once: true }}
             className="flex justify-center md:justify-start"
           >
-            <div className="relative w-[300px] h-[330px] md:w-[350px] md:h-[400px] group">
-              {/* 3px Cyan Border Layer */}
-              <div className="absolute inset-0 bg-neonCyan hexagon-shape transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,234,238,0.4)]"></div>
-              
-              {/* Image Layer (Clipped) */}
-              <div className="absolute inset-[3px] bg-bgDark hexagon-shape overflow-hidden">
-                <img 
-                  src="/image1.jpeg" 
-                  alt="About Me" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                />
-              </div>
+            <div className="hexagon-wrapper">
+               <img 
+                 src="/image1.jpeg" 
+                 alt="About Me" 
+                 className="profile-img" 
+               />
             </div>
           </motion.div>
           
@@ -327,7 +319,10 @@ const App = () => {
                 Hire Me ↗
               </a>
               <button 
-                onClick={() => alert("My Resume is currently being updated! Please check back soon 🔥")}
+                onClick={() => {
+                  setShowResumeAlert(true);
+                  setTimeout(() => setShowResumeAlert(false), 5000);
+                }}
                 className="inline-flex items-center gap-3 px-8 py-4 border-2 border-neonCyan text-neonCyan rounded-xl font-black text-lg transition-all duration-300 hover:bg-neonCyan/10 hover:shadow-[0_0_20px_rgba(0,234,238,0.3)]"
               >
                 View Resume 📄
@@ -434,6 +429,30 @@ const App = () => {
           <ChevronUp className="w-8 h-8" />
         </a>
       </footer>
+
+      {/* Custom Resume Alert Toast */}
+      <AnimatePresence>
+        {showResumeAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[200] bg-[#0a0a0f] border border-neonCyan p-6 rounded-2xl shadow-[0_0_30px_rgba(0,234,238,0.3)] flex items-center gap-6 max-w-sm"
+          >
+            <div className="text-4xl shadow-neon rounded-full bg-neonCyan/10 p-2">🔥</div>
+            <div className="flex-1">
+               <h4 className="font-bold text-neonCyan uppercase tracking-widest text-sm mb-1">Notice</h4>
+               <p className="text-[#a0a0b0] text-sm leading-relaxed">My Resume is currently being updated! Please check back soon.</p>
+            </div>
+            <button 
+              onClick={() => setShowResumeAlert(false)} 
+              className="text-white/50 hover:text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

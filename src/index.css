@@ -15,38 +15,49 @@
 }
 
 @layer components {
-  /* Hexagon Core Architecture */
-  .hexagon-shape {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-  
+  /* 1. Hexagon Border Container */
   .hexagon-wrapper {
-    @apply relative flex items-center justify-center transition-all duration-500;
+      position: relative;
+      width: 350px;
+      height: 350px;
+      background: #00eaee; /* Cyan border color */
+      padding: 4px; /* Border thickness */
+      /* Creates the perfect hexagon shape */
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+      cursor: pointer;
   }
 
-  /* 5px Border Logic */
-  .hexagon-border {
-    @apply absolute inset-0 bg-neonCyan hexagon-shape;
-    z-index: 1;
+  /* 2. The Actual Profile Image */
+  .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Cuts the image to match the border */
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+      filter: grayscale(0%); /* Normal color by default */
   }
 
-  .hexagon-inner {
-    @apply absolute hexagon-shape bg-bgDark overflow-hidden;
-    inset: 5px; /* Creates the 5px border look */
-    z-index: 2;
-  }
-
-  .hexagon-image {
-    @apply w-full h-full object-cover transition-all duration-700 ease-in-out;
-  }
-
-  /* Hover Logic: Zoom + Grayscale + Glow */
-  .hexagon-wrapper:hover .hexagon-image {
-    @apply scale-110 grayscale;
-  }
-
+  /* 3. THE MAGIC: Hover Effect on Container */
   .hexagon-wrapper:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 234, 238, 0.6));
+      transform: translateY(-12px); /* Floats up */
+      /* Deep cyan glow shadow */
+      filter: drop-shadow(0px 15px 30px rgba(0, 234, 238, 0.4)); 
+  }
+
+  /* 4. THE MAGIC: Hover Effect on Image */
+  .hexagon-wrapper:hover .profile-img {
+      transform: scale(1.1); /* Smooth cinematic zoom */
+      filter: grayscale(100%) contrast(115%); /* Dramatic B&W transition */
+  }
+
+  /* Failsafe: Kills any old glitch layers if they still exist */
+  .hexagon-wrapper::before,
+  .hexagon-wrapper::after,
+  .profile-img::before,
+  .profile-img::after {
+      display: none !important;
   }
 
   /* Typography Branding */
