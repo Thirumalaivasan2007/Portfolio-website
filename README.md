@@ -11,6 +11,18 @@ A modern, responsive, and highly interactive personal portfolio built to showcas
 * **Fully Responsive:** Flawless experience across all devices (Desktop, Tablet, Mobile) with a custom hamburger menu for mobile navigation.
 * **Project Showcase:** Dedicated sections for highlighting key projects (like Feastify and Zylron AI Local) with clear tech stacks and descriptions.
 * **Interactive Contact Form:** A fully functional contact form (configured with Web3Forms) to receive messages directly.
+## 👨‍💻 About Me
+
+Hi, I'm *Thirumalaivasan T*, a passionate Full-Stack AI Architect and currently a 2nd-year Computer Science student. 
+
+My journey in tech has evolved from building traditional MERN stack applications to architecting AI-native digital ecosystems. I specialize in bridging the gap between complex AI models and user-friendly web interfaces.
+
+*My Core Focus:*
+* **Full-Stack Development:** MERN Stack (MongoDB, Express.js, React, Node.js).
+* **AI Integration:** Embedding LLMs (like Gemini and local Ollama instances) directly into web applications to create predictive and intelligent user experiences.
+* **Cloud Architecture:** Designing and deploying scalable distributed systems using platforms like Vercel and Render.
+
+I'm an aggressive participant in hackathons and coding challenges, constantly pushing the boundaries of what's possible with modern web and AI technologies.
 
 ## 🛠️ Technologies Used
 
