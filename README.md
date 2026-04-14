@@ -57,7 +57,7 @@ To run this project locally on your machine:
 ## 👨‍💻 Author
 
 **Thirumalaivasan T**
-* *LinkedIn:* [T Thirumalai](https://www.linkedin.com/in/t-thirumalai-944tv)
+* *LinkedIn:* [Thirumalaivasan T](https://www.linkedin.com/in/t-thirumalai-944tv)
 * *GitHub:* [Thirumalaivasan2007](https://github.com/Thirumalaivasan2007)
 * *Email:* [thirumalaivasan944@gmail.com](mailto:thirumalaivasan944@gmail.com)
 
