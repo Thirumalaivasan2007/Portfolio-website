@@ -144,8 +144,8 @@ const App = () => {
     <div className="bg-bgDark min-h-screen text-white font-poppins transition-colors duration-500 overflow-x-hidden">
       {/* Header */}
       <nav className={`fixed top-0 left-0 w-full px-[10%] py-4 flex justify-between items-center z-[100] transition-all duration-300 ${isScrolled ? 'bg-bgDark/80 backdrop-blur-xl py-3 border-b border-white/5 shadow-2xl' : 'bg-transparent'}`}>
-        <a href="#home" className="text-3xl font-extrabold tracking-tighter hover:scale-105 transition-transform">
-          T<span className="text-neonCyan">.</span>
+        <a href="#home" className="text-2xl md:text-3xl font-black tracking-tighter hover:scale-105 transition-transform text-neonCyan text-glow-cyan">
+          THIRUMALAIVASAN
         </a>
         <div className="space-x-8 hidden lg:flex">
           {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
@@ -168,14 +168,14 @@ const App = () => {
           viewport={{ once: true }}
           className="flex-1 text-center lg:text-left z-10"
         >
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-neonCyan tracking-widest uppercase">Dev_Intelligence</h3>
-          <h1 className="text-6xl md:text-8xl font-black leading-[1.1] mb-4">
+          <h3 className="text-xl md:text-2xl font-black mb-4 text-neonCyan tracking-[0.3em] uppercase opacity-80 italic">HELLO, I'M</h3>
+          <h1 className="text-6xl md:text-8xl font-black leading-[1.1] mb-4 tracking-tighter">
             Thirumalai<br/><span className="text-neonCyan">vasan T</span>
           </h1>
-          <h3 className="text-2xl md:text-4xl font-bold mb-8 opacity-90">
-            <span className="text-white">And I'm a </span>
+          <h3 className="text-2xl md:text-4xl font-bold mb-8 opacity-90 tracking-tight">
+            <span className="text-white/80">I am a </span>
             <span className="text-neonCyan">{text}</span>
-            <span className="animate-pulse text-neonCyan">|</span>
+            <span className="animate-pulse text-neonCyan ml-1">|</span>
           </h3>
           <p className="text-lg mb-10 leading-relaxed text-gray-400 max-w-2xl">
             Hyper-focused on building the next generation of AI-native applications. Specializing in MERN stack, on-device LLMs, and high-performance cloud architectures.
@@ -205,20 +205,103 @@ const App = () => {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
           className="flex-1 flex justify-center items-center z-10"
         >
-          <div className="relative w-80 h-80 md:w-[32rem] md:h-[32rem] group">
+          <motion.div 
+            whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+            className="relative w-80 h-80 md:w-[32rem] md:h-[32rem] group cursor-pointer"
+          >
+             {/* Hexagon Bounds & Glow */}
              <div className="absolute inset-0 bg-neonCyan/20 animate-pulse-cyan hexagon-image-container p-1 shadow-neon"></div>
              <div className="absolute inset-0 bg-neonCyan hexagon-image-container opacity-20 blur-3xl group-hover:opacity-40 transition-opacity"></div>
-             <img src="/image1.jpeg" alt="Profile" className="absolute inset-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] object-cover hexagon-image-container grayscale group-hover:grayscale-0 transition-all duration-700" />
-          </div>
+             
+             {/* RGB Glitch Layers */}
+             <div className="absolute inset-2 hexagon-image-container overflow-hidden bg-bgDark">
+                {/* Red Glitch Layer */}
+                <motion.img 
+                  src="/image1.jpeg" 
+                  alt="Profile Glitch" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:animate-[glitch-rgb_0.3s_infinite] glitch-layer brightness-150 saturate-200"
+                  style={{ filter: "url(#red-filter)" }} 
+                />
+                
+                {/* Original/Base Layer */}
+                <img 
+                  src="/image1.jpeg" 
+                  alt="Profile" 
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:opacity-30 group-hover:scale-110" 
+                />
+
+                {/* Blue Glitch Overlay */}
+                <motion.img 
+                  src="/image1.jpeg" 
+                  alt="Profile Glitch" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:animate-[glitch-rgb_0.2s_infinite_reverse] glitch-layer brightness-150 saturate-200"
+                  style={{ filter: "url(#blue-filter)" }} 
+                />
+             </div>
+
+             {/* SVG Color Filters for Glitch */}
+             <svg className="hidden">
+               <filter id="red-filter">
+                 <feColorMatrix type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
+               </filter>
+               <filter id="blue-filter">
+                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0" />
+               </filter>
+             </svg>
+          </motion.div>
         </motion.div>
       </section>
-
+      {/* About Section */}
+      <section id="about" className="py-32 px-[10%] bg-[#0a0a0f] relative border-y border-white/5">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-neonCyan/5 blur-[120px] rounded-full"></div>
+        <div className="flex flex-col md:flex-row items-center gap-20 max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex-1 lg:max-w-[450px] relative group"
+          >
+             <div className="absolute -inset-4 bg-neonCyan/10 blur-2xl group-hover:bg-neonCyan/20 transition-all duration-700"></div>
+             <img src="/image1.jpeg" alt="About Me" className="relative w-full aspect-[4/5] object-cover rounded-[2.5rem] border border-white/10 z-10 transition-all duration-700 group-hover:rounded-[1rem] group-hover:brightness-110" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex-1 space-y-8"
+          >
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+              A Bit <span className="text-neonCyan border-b-4 border-neonCyan/20 pb-1">About Me</span>
+            </h2>
+            <h3 className="text-2xl font-bold text-neonCyan tracking-widest uppercase opacity-80">Full-Stack AI Architect</h3>
+            <p className="text-xl leading-relaxed text-gray-300 italic font-medium">
+              "Building intelligent digital ecosystems, one line of code at a time."
+            </p>
+            <p className="text-lg leading-relaxed text-gray-400 font-medium">
+              Currently a 2nd-year CSE student, I have evolved from a traditional MERN developer into an AI-focused architect. I integrate LLMs (Gemini, Ollama) directly into the web application fabric to create experiences that don't just respond, but anticipate user needs.
+            </p>
+            <motion.a 
+              href="#portfolio" 
+              whileHover={{ x: 10 }}
+              className="inline-flex items-center gap-4 px-10 py-4 bg-white/5 border border-white/10 text-white rounded-full font-bold hover:bg-neonCyan hover:text-bgDark transition-all duration-300 group"
+            >
+              Explore My Work
+              <div className="w-8 h-8 rounded-full bg-neonCyan group-hover:bg-bgDark flex items-center justify-center transition-colors">
+                <ExternalLink className="w-4 h-4" />
+              </div>
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
       {/* Portfolio Section */}
       <section id="portfolio" className="py-32 px-[10%] relative overflow-hidden bg-[#0a0a0f]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -230,8 +313,8 @@ const App = () => {
           viewport={{ once: true }}
           className="text-center mb-24 relative"
         >
-          <h2 className="text-6xl md:text-8xl font-black opacity-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden md:block select-none">ARCHITECTURE</h2>
-          <h2 className="text-4xl md:text-6xl font-black mb-4">Latest <span className="text-neonCyan">Masterpieces</span></h2>
+          <h2 className="text-6xl md:text-8xl font-black opacity-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden md:block select-none tracking-[0.4em]">ARCHITECTURE</h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter">Latest <span className="text-neonCyan border-b-4 border-neonCyan/20 pb-2">Masterpieces</span></h2>
           <div className="w-24 h-1.5 bg-neonCyan mx-auto rounded-full group-hover:w-48 transition-all"></div>
         </motion.div>
 
@@ -252,7 +335,7 @@ const App = () => {
 
       {/* Services Section */}
       <section id="services" className="py-32 px-[10%] bg-bgDark">
-        <h2 className="text-4xl md:text-6xl font-black text-center mb-20 italic">Deep <span className="text-neonCyan">Services</span></h2>
+        <h2 className="text-4xl md:text-6xl font-black text-center mb-24 tracking-[0.25em] uppercase">Deep <span className="text-neonCyan">Services</span></h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {[
             { icon: Code, title: "Web Architecture", desc: "Crafting bulletproof frontend systems and ultra-secure Node.js backends." },
@@ -330,7 +413,7 @@ const App = () => {
 
       {/* Footer */}
       <footer className="py-20 bg-bgDark px-[10%] flex flex-col items-center gap-8 border-t border-white/5">
-        <h2 className="text-2xl font-black tracking-tighter">THIRUMALAI<br/><span className="text-neonCyan">VASAN T</span></h2>
+        <h2 className="text-2xl font-black tracking-tighter text-neonCyan text-glow-cyan">THIRUMALAIVASAN</h2>
         <div className="text-sm font-semibold opacity-50 uppercase tracking-[0.5em]">
           &copy; {new Date().getFullYear()} THIRUMALAI.ENGINEERING
         </div>

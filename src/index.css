@@ -42,4 +42,25 @@
   .animate-pulse-cyan {
     animation: pulse-cyan 2s infinite;
   }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5), 0 0 20px rgba(0, 238, 255, 0.3);
+  }
+
+  @keyframes glitch-rgb {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+  }
+
+  .glitch-layer {
+    mix-blend-mode: lighten;
+  }
+
+  .glitch-red { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 red); }
+  .glitch-blue { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 blue); }
+  .glitch-green { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 green); }
 }
