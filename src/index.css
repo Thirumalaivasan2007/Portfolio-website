@@ -12,6 +12,11 @@
   body {
     @apply bg-bgDark text-white font-sans antialiased;
   }
+
+  /* Deep Tech Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #08080c; }
+  ::-webkit-scrollbar-thumb { background: #00eaee; border-radius: 10px; }
 }
 
 @layer components {
