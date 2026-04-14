@@ -71,6 +71,16 @@
       color: #00eaee;
   }
 
+  /* Achievements List */
+  .achievement-item {
+    @apply flex items-start gap-4 text-[#a0a0b0] relative pl-6;
+  }
+  
+  .achievement-item::before {
+    content: "▹";
+    @apply absolute left-0 text-neonCyan font-bold;
+  }
+
   /* Glassmorphism Global Styles */
   .glass-card {
     background: rgba(255, 255, 255, 0.03);

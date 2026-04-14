@@ -206,34 +206,86 @@ const App = () => {
         </motion.div>
       </section>
 
-      {/* About Section */}
+      {/* About + Achievements Section */}
       <section id="about" className="py-32 px-[10%] bg-[#0a0a0f] relative border-y border-white/5">
-        <div className="flex flex-col md:flex-row items-center gap-20 max-w-7xl mx-auto">
-          <div className="flex-1 lg:max-w-[450px] relative group">
-             <div className="absolute -inset-4 bg-neonCyan/5 blur-3xl group-hover:bg-neonCyan/10 transition-all duration-700"></div>
-             <div className="hexagon-wrapper w-full aspect-[4/5]">
-                <div className="hexagon-border border-2"></div>
-                <div className="hexagon-inner">
-                  <img src="/image1.jpeg" alt="About Me" className="hexagon-image grayscale hover:grayscale-0 transition-all duration-700" />
-                </div>
-             </div>
-          </div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neonCyan/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+          {/* Left Column: Refined Hexagon Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex justify-center md:justify-start"
+          >
+            <div className="relative w-[300px] h-[330px] md:w-[350px] md:h-[400px] group">
+              {/* 3px Cyan Border Layer */}
+              <div className="absolute inset-0 bg-neonCyan hexagon-shape transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,234,238,0.4)]"></div>
+              
+              {/* Image Layer (Clipped) */}
+              <div className="absolute inset-[3px] bg-bgDark hexagon-shape overflow-hidden">
+                <img 
+                  src="/image1.jpeg" 
+                  alt="About Me" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+              </div>
+            </div>
+          </motion.div>
           
-          <div className="flex-1 space-y-8">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
-              A Bit <span className="text-neonCyan border-b-4 border-neonCyan/20 pb-1">About Me</span>
-            </h2>
-            <h3 className="text-2xl font-bold text-neonCyan tracking-widest uppercase opacity-80">Full-Stack AI Architect</h3>
-            <p className="text-xl leading-relaxed text-[#a0a0b0] italic font-medium">
-              "Building intelligent digital ecosystems, one line of code at a time."
-            </p>
-            <p className="text-lg leading-relaxed text-[#a0a0b0]">
-              Currently a 2nd-year CSE student, I have evolved into an AI-focused architect. I integrate LLMs (Gemini, Ollama) directly into web applications to create predictive, high-performance user experiences.
-            </p>
-            <a href="#portfolio" className="inline-flex items-center gap-4 px-10 py-4 border border-white/10 text-white rounded-full font-bold hover:bg-neonCyan hover:text-bgDark transition-all duration-300">
-              Explore My Work <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
+          {/* Right Column: Text & Achievements */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="space-y-2">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">
+                A BIT <span className="text-neonCyan">ABOUT ME</span>
+              </h2>
+              <h3 className="text-xl font-bold text-neonCyan tracking-widest uppercase opacity-80">Full-Stack AI Architect</h3>
+            </div>
+
+            <div className="space-y-4 text-lg leading-relaxed text-[#a0a0b0]">
+              <p className="italic font-medium text-white/90">
+                "Building intelligent digital ecosystems, one line of code at a time."
+              </p>
+              <p>
+                Currently a 2nd-year CSE student, I have evolved from a traditional MERN developer into an AI-focused architect. I integrate LLMs (Gemini, Ollama) directly into web applications to create predictive user experiences.
+              </p>
+            </div>
+
+            <div className="space-y-6 pt-4 border-t border-white/5">
+              <h4 className="text-xl font-black uppercase tracking-widest text-white">Key Achievements & Skills</h4>
+              <ul className="space-y-4">
+                <li className="achievement-item">
+                  <span><strong>Feature Project:</strong> Fully designed and deployed 'Feastify' with a custom AI cross-selling engine.</span>
+                </li>
+                <li className="achievement-item">
+                  <span><strong>AI Integration:</strong> Expertly implemented Nominatim Geolocation and secure vector-memory interfaces.</span>
+                </li>
+                <li className="achievement-item">
+                  <span><strong>Cloud Distribution:</strong> Proficient in deploying distributed MERN systems via Vercel and render.</span>
+                </li>
+                <li className="achievement-item">
+                  <span><strong>Problem Solving:</strong> Aggressive participant in cross-platform hackathons and architecture challenges.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6">
+              <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                className="inline-flex items-center gap-3 px-8 py-4 bg-neonCyan text-bgDark rounded-xl font-black text-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,234,238,0.5)] hover:scale-105"
+              >
+                View My Resume <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
