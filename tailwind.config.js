@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        bgDark: '#1f242d',
+        bgDark: '#08080c',
         neonCyan: '#0ef',
+        feastifyRed: '#ff3366',
+        glassBorder: 'rgba(255, 255, 255, 0.05)',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
