@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Github, Linkedin, Instagram, Facebook, Twitter, ExternalLink, 
-  Code, Brain, Globe, MessageSquare, ChevronUp, Mail, Phone,
-  Menu, X 
+  Linkedin, Instagram, Facebook, Twitter, ExternalLink, 
+  Code, Brain, Globe, ChevronUp, Menu, X 
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
 import Footer from './components/Footer';
+
+const phrases = ["Full-Stack Developer", "AI Engineer", "MERN Stack Specialist"];
+const typingSpeed = 100;
+const deletingSpeed = 50;
+const pauseDuration = 2000;
 
 const App = () => {
   const [text, setText] = useState('');
@@ -16,11 +21,6 @@ const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showResumeAlert, setShowResumeAlert] = useState(false);
-
-  const phrases = ["Full-Stack Developer", "AI Engineer", "MERN Stack Specialist"];
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseDuration = 2000;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -35,8 +35,10 @@ const App = () => {
     if (!isDeleting && text === currentPhrase) {
       timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
     } else if (isDeleting && text === '') {
-      setIsDeleting(false);
-      setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }, deletingSpeed);
     } else {
       timeout = setTimeout(() => {
         setText(currentPhrase.substring(0, text.length + (isDeleting ? -1 : 1)));
