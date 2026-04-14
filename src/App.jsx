@@ -115,7 +115,7 @@ const App = () => {
     },
     {
       title: "Feastify",
-      tag: "Full-Stack AI",
+      tag: "Food App",
       description: "A high-performance food delivery web application built with a modern decoupled architecture. Features advanced automation.",
       highlights: [
         "AI Smart Engine for cart cross-selling",
