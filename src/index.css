@@ -63,4 +63,30 @@
   .glitch-red { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 red); }
   .glitch-blue { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 blue); }
   .glitch-green { filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 0 green); }
+
+  /* New Refined Hero Styles */
+  .clean-greeting {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      font-style: normal !important;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+  }
+
+  .single-line-name {
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 0px;
+      white-space: nowrap;
+  }
+
+  .cyan-text {
+      color: #0ef; /* Keeping the consistent neon cyan */
+  }
 }

@@ -168,9 +168,9 @@ const App = () => {
           viewport={{ once: true }}
           className="flex-1 text-center lg:text-left z-10"
         >
-          <h3 className="text-xl md:text-2xl font-black mb-4 text-neonCyan tracking-[0.3em] uppercase opacity-80 italic">HELLO, I'M</h3>
-          <h1 className="text-6xl md:text-8xl font-black leading-[1.1] mb-4 tracking-tighter">
-            Thirumalai<br/><span className="text-neonCyan">vasan T</span>
+          <h3 className="clean-greeting">Hello, It's Me</h3>
+          <h1 className="single-line-name justify-center lg:justify-start">
+            Thirumalai<span className="cyan-text">vasan T</span>
           </h1>
           <h3 className="text-2xl md:text-4xl font-bold mb-8 opacity-90 tracking-tight">
             <span className="text-white/80">I am a </span>
