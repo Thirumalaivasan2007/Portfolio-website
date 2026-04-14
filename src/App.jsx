@@ -6,6 +6,7 @@ import {
   Menu, X 
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
+import Footer from './components/Footer';
 
 const App = () => {
   const [text, setText] = useState('');
@@ -420,15 +421,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 bg-[#060608] px-[10%] flex flex-col items-center gap-8 border-t border-white/5">
-        <h2 className="text-2xl font-black tracking-widest text-neonCyan text-glow-cyan uppercase">THIRUMALAIVASAN</h2>
-        <div className="text-sm font-semibold opacity-40 uppercase tracking-[0.5em] text-center">
-          &copy; {new Date().getFullYear()} THIRUMALAI.ENGINEERING
-        </div>
-        <a href="#home" className="w-14 h-14 bg-neonCyan text-bgDark flex items-center justify-center rounded-2xl hover:scale-110 transition-transform shadow-neon">
-          <ChevronUp className="w-8 h-8" />
-        </a>
-      </footer>
+      <Footer />
 
       {/* Custom Resume Alert Toast */}
       <AnimatePresence>
