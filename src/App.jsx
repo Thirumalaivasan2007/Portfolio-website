@@ -276,14 +276,19 @@ const App = () => {
               </ul>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">
               <a 
-                href="/resume.pdf" 
-                target="_blank" 
+                href="#contact" 
                 className="inline-flex items-center gap-3 px-8 py-4 bg-neonCyan text-bgDark rounded-xl font-black text-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,234,238,0.5)] hover:scale-105"
               >
-                View My Resume <ExternalLink className="w-5 h-5" />
+                Hire Me ↗
               </a>
+              <button 
+                onClick={() => alert("My Resume is currently being updated! Please check back soon 🔥")}
+                className="inline-flex items-center gap-3 px-8 py-4 border-2 border-neonCyan text-neonCyan rounded-xl font-black text-lg transition-all duration-300 hover:bg-neonCyan/10 hover:shadow-[0_0_20px_rgba(0,234,238,0.3)]"
+              >
+                View Resume 📄
+              </button>
             </div>
           </motion.div>
         </div>
