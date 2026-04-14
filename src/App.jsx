@@ -275,11 +275,11 @@ const App = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-32 px-[10%] bg-[#08080c]">
-        <h2 className="text-4xl md:text-6xl font-black mb-20 text-center uppercase tracking-tighter">Terminal <span className="text-neonCyan">Input</span></h2>
+        <h2 className="text-4xl md:text-6xl font-black mb-20 text-center uppercase tracking-tighter">Get In <span className="text-neonCyan">Touch</span></h2>
         
         <div className="grid lg:grid-cols-3 gap-16 max-w-7xl mx-auto">
           <div className="lg:col-span-1 space-y-10">
-            <h3 className="text-2xl font-bold border-l-4 border-neonCyan pl-6 uppercase tracking-widest">Connect</h3>
+            <h3 className="text-2xl font-bold border-l-4 border-neonCyan pl-6 uppercase tracking-widest">Contact Info</h3>
             <div className="space-y-6">
               <a href="mailto:thirumalaivasan944@gmail.com" className="flex items-center gap-6 group">
                 <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5 group-hover:border-neonCyan/50 transition-colors">
@@ -303,15 +303,15 @@ const App = () => {
           </div>
 
           <form onSubmit={handleSendMessage} className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 glass-card p-12 rounded-[3.5rem] relative">
-            <div className="absolute -top-6 right-12 px-6 py-2 bg-neonCyan text-bgDark font-black rounded-xl text-xs uppercase tracking-widest shadow-neon">Secure Node</div>
+            <div className="absolute -top-6 right-12 px-6 py-2 bg-neonCyan text-bgDark font-black rounded-xl text-xs uppercase tracking-widest shadow-neon">Let's Talk</div>
             <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Name" required className="p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all" />
             <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" required className="p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all" />
             <input type="tel" name="mobile" value={formData.mobile} onChange={handleInputChange} placeholder="Mobile" required className="p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all" />
             <input type="text" name="subject" value={formData.subject} onChange={handleInputChange} placeholder="Subject" required className="p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all" />
-            <textarea name="message" value={formData.message} onChange={handleInputChange} rows="6" placeholder="Transmission Content..." required className="md:col-span-2 p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all resize-none"></textarea>
+            <textarea name="message" value={formData.message} onChange={handleInputChange} rows="6" placeholder="Your Message..." required className="md:col-span-2 p-5 bg-bgDark rounded-2xl border border-white/5 focus:border-neonCyan outline-none transition-all resize-none"></textarea>
             
             <div className="md:col-span-2 flex flex-col items-center gap-6 mt-4">
-              <button type="submit" className="w-full py-5 bg-neonCyan text-bgDark rounded-2xl font-black text-xl hover:shadow-[0_0_40px_rgba(0,234,238,0.5)] transition-all">EXECUTE TRANSMISSION</button>
+              <button type="submit" className="w-full py-5 bg-neonCyan text-bgDark rounded-2xl font-black text-xl hover:shadow-[0_0_40px_rgba(0,234,238,0.5)] transition-all">Send Message</button>
               <AnimatePresence>
                 {result && (
                   <motion.p initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="text-lg font-black text-neonCyan uppercase tracking-widest text-glow-cyan text-center">
